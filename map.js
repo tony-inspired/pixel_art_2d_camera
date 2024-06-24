@@ -7,7 +7,7 @@ export class Map{
         this.image = document.getElementById('tilemap1');
         this.image_tile = 32;
 
-        this.image_cols = this.image.width / this.image.tile;
+        this.image_cols = this.image.width / this.image_tile;
 
         this.layers = [[
             18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18,

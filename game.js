@@ -1,8 +1,8 @@
 import { Map } from "./map.js";
 import { Camera } from "./camera.js"
 
-const GAME_WIDTH = 512;
-const GAME_HEIGHT = 512;
+const GAME_WIDTH = 768;
+const GAME_HEIGHT = 768;
 
 class Game {
     constructor(){
@@ -52,26 +52,13 @@ class Game {
     render(ctx){
 
         for (let row = 0; row <= this.map.rows; row++){
-            for (let col = 0; col <= this.map.rows; col++){
+            for (let col = 0; col <= this.map.cols; col++){
 
-                const tile = 18;
+                const tile = 12;
 
                 ctx.drawImage(
                     this.map.image,
-                    2 * this.map.image_tile,
-                    2 * this.map.image_tile,
-                    this.map.image_tile,
-                    this.map.image_tile,
-                    col * this.map.tileSize,
-                    row * this.map.tileSize,
-                    this.map.tileSize,
-                    this.map.tileSize
-                );
-
-/*
-                ctx.drawImage(
-                    this.map.image,
-                    (tile - 1) * this.map.image_tile % this.map.image.width, //sx, sy, sw, sh (first 4) - an area we want to crop ou from that image
+                    (tile - 1) * this.map.image_tile % this.map.image.width,
                     Math.floor((tile - 1) / this.map.image_cols) * this.map.image_tile,
                     this.map.image_tile,
                     this.map.image_tile,
@@ -80,7 +67,7 @@ class Game {
                     this.map.tileSize,
                     this.map.tileSize
                 );
-*/
+
                 ctx.strokeRect(
                     col * this.map.tileSize,
                     row * this.map.tileSize,
@@ -106,10 +93,10 @@ window.addEventListener('load', function(){
 
         //video 23:20
         const deltaTime = (timeStamp - lastTime) / 1000;
-        console.log(deltaTime);
+        //console.log(deltaTime);
         lastTime = timeStamp;
 
-        console.log(deltaTime);
+        //console.log(deltaTime);
         game.update(deltaTime);
         game.render(ctx);
         requestAnimationFrame(animate);
