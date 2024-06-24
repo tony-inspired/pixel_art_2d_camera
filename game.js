@@ -50,6 +50,7 @@ class Game {
     }
 
     render(ctx){
+
         ctx.drawImage(
             this.map.image,
             this.camera.x, //sx, sy, sw, sh (first 4) - an area we want to crop ou from that image
@@ -61,6 +62,17 @@ class Game {
             GAME_WIDTH,
             GAME_HEIGHT
         );
+
+        for (let row = 0; row <= this.map.rows; row++){
+            for (let col = 0; col <= this.map.rows; col++){
+                ctx.strokeRect(
+                    col * this.map.tileSize,
+                    row * this.map.tileSize,
+                    this.map.tileSize,
+                    this.map.tileSize
+                )
+            }
+        }
     }
 }
 
