@@ -58,14 +58,14 @@ class Game {
 
                 ctx.drawImage(
                     this.map.image,
-                    0,
-                    0,
+                    2 * this.map.image_tile,
+                    2 * this.map.image_tile,
                     this.map.image_tile,
                     this.map.image_tile,
-                    0,
-                    0,
-                    GAME_WIDTH,
-                    GAME_HEIGHT
+                    col * this.map.tileSize,
+                    row * this.map.tileSize,
+                    this.map.tileSize,
+                    this.map.tileSize
                 );
 
 /*
