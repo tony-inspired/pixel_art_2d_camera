@@ -4,7 +4,7 @@ export class Map{
         this.rows = 12;
         this.tileSize = 64;
 
-        this.image = document.getElementById('full_map');
+        this.image = document.getElementById('tilemap1');
         this.image_tile = 32;
 
         this.image_cols = this.image.width / this.image.tile;
