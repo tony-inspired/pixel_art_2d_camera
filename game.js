@@ -88,6 +88,7 @@ window.addEventListener('load', function(){
     const ctx = canvas.getContext('2d');
     canvas.width = GAME_WIDTH;
     canvas.height = GAME_HEIGHT;
+    ctx.imageSmoothingEnabled = false;
 
     const game = new Game();
     
