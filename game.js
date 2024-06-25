@@ -1,8 +1,8 @@
 import { Map } from "./map.js";
 import { Camera } from "./camera.js"
 
-const GAME_WIDTH = 768;
-const GAME_HEIGHT = 768;
+const GAME_WIDTH = 512;
+const GAME_HEIGHT = 512;
 
 class Game {
     constructor(){
@@ -50,19 +50,29 @@ class Game {
     }
 
     drawLayer(layer, ctx){
-        for (let row = 0; row <= this.map.rows; row++){
-            for (let col = 0; col <= this.map.cols; col++){
+
+        const startCol = Math.floor(this.camera.x / this.map.tileSize);
+        const endCol = startCol + (this.camera.width / this.map.tileSize);
+        const startRow = Math.floor(this.camera.y / this.map.tileSize);
+        const endRow = startRow + (this.camera.height / this.map.tileSize);
+
+        const offsetX = -this.camera.x + startCol * this.map.tileSize;
+        const offsetY = -this.camera.y + startRow * this.map.tileSize;
+
+        for (let row = startRow; row <= endRow; row++){
+            for (let col = startCol; col <= endCol; col++){
 
                 const tile = this.map.getTile(layer, col, row);
-
+                const x = (col - startCol) * this.map.tileSize + offsetX;
+                const y = (row - startRow) * this.map.tileSize + offsetY;
                 ctx.drawImage(
                     this.map.image,
                     (tile - 1) * this.map.image_tile % this.map.image.width,
                     Math.floor((tile - 1) / this.map.image_cols) * this.map.image_tile,
                     this.map.image_tile,
                     this.map.image_tile,
-                    col * this.map.tileSize,
-                    row * this.map.tileSize,
+                    Math.round(x),
+                    Math.round(y),
                     this.map.tileSize,
                     this.map.tileSize
                 );

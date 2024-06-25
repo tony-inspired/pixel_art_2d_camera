@@ -5,8 +5,8 @@ export class Camera {
         this.height = height;
         this.x = 128;
         this.y = 128;
-        this.maxX = map.image.width - this.width;
-        this.maxY = map.image.height - this.height;
+        this.maxX = map.cols * map.tileSize - this.width;
+        this.maxY = map.rows * map.tileSize - this.height;
         this.speed = 500; //pixels per seconds
     }
 
