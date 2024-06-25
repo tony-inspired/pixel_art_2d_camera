@@ -54,7 +54,7 @@ class Game {
         for (let row = 0; row <= this.map.rows; row++){
             for (let col = 0; col <= this.map.cols; col++){
 
-                const tile = 12;
+                const tile = this.map.getTile(0, col, row);
 
                 ctx.drawImage(
                     this.map.image,
