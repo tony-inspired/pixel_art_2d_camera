@@ -49,12 +49,11 @@ class Game {
         this.camera.move(deltaTime, speedX, speedY);
     }
 
-    render(ctx){
-
+    drawLayer(layer, ctx){
         for (let row = 0; row <= this.map.rows; row++){
             for (let col = 0; col <= this.map.cols; col++){
 
-                const tile = this.map.getTile(0, col, row);
+                const tile = this.map.getTile(layer, col, row);
 
                 ctx.drawImage(
                     this.map.image,
@@ -76,6 +75,11 @@ class Game {
                 )
             }
         }
+    }
+    render(ctx){
+
+        this.drawLayer(0, ctx);
+        this.drawLayer(1, ctx);
     }
 }
 
