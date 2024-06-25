@@ -1,8 +1,8 @@
 import { Map } from "./map.js";
 import { Camera } from "./camera.js"
 
-const GAME_WIDTH = 512;
-const GAME_HEIGHT = 512;
+const GAME_WIDTH = 500;
+const GAME_HEIGHT = 500;
 
 class Game {
     constructor(){
@@ -77,12 +77,14 @@ class Game {
                     this.map.tileSize
                 );
 
+                /*
                 ctx.strokeRect(
                     col * this.map.tileSize,
                     row * this.map.tileSize,
                     this.map.tileSize,
                     this.map.tileSize
                 )
+                */
             }
         }
     }
