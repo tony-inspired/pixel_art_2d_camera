@@ -5,9 +5,9 @@ export class Map{
         this.displayTileSize = 64;
 
         this.image = document.getElementById('tilemap1');
-        this.image_tile = 32;
+        this.spriteTileSize = 32;
 
-        this.image_cols = this.image.width / this.image_tile;
+        this.image_cols = this.image.width / this.spriteTileSize;
 
         this.layers = [[
             18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18,

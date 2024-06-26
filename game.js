@@ -67,10 +67,10 @@ class Game {
                 const y = (row - startRow) * this.map.displayTileSize + offsetY;
                 ctx.drawImage(
                     this.map.image,
-                    (tile - 1) * this.map.image_tile % this.map.image.width,
-                    Math.floor((tile - 1) / this.map.image_cols) * this.map.image_tile,
-                    this.map.image_tile,
-                    this.map.image_tile,
+                    (tile - 1) * this.map.spriteTileSize % this.map.image.width,
+                    Math.floor((tile - 1) / this.map.image_cols) * this.map.spriteTileSize,
+                    this.map.spriteTileSize,
+                    this.map.spriteTileSize,
                     Math.round(x),
                     Math.round(y),
                     this.map.displayTileSize,
