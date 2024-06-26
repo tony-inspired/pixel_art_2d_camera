@@ -2,7 +2,7 @@ export class Map{
     constructor(){
         this.cols = 12;
         this.rows = 12;
-        this.tileSize = 64;
+        this.displayTileSize = 64;
 
         this.image = document.getElementById('tilemap1');
         this.image_tile = 32;

@@ -51,20 +51,20 @@ class Game {
 
     drawLayer(layer, ctx){
 
-        const startCol = Math.floor(this.camera.x / this.map.tileSize);
-        const endCol = startCol + (this.camera.width / this.map.tileSize);
-        const startRow = Math.floor(this.camera.y / this.map.tileSize);
-        const endRow = startRow + (this.camera.height / this.map.tileSize);
+        const startCol = Math.floor(this.camera.x / this.map.displayTileSize);
+        const endCol = startCol + (this.camera.width / this.map.displayTileSize);
+        const startRow = Math.floor(this.camera.y / this.map.displayTileSize);
+        const endRow = startRow + (this.camera.height / this.map.displayTileSize);
 
-        const offsetX = -this.camera.x + startCol * this.map.tileSize;
-        const offsetY = -this.camera.y + startRow * this.map.tileSize;
+        const offsetX = -this.camera.x + startCol * this.map.displayTileSize;
+        const offsetY = -this.camera.y + startRow * this.map.displayTileSize;
 
         for (let row = startRow; row <= endRow; row++){
             for (let col = startCol; col <= endCol; col++){
 
                 const tile = this.map.getTile(layer, col, row);
-                const x = (col - startCol) * this.map.tileSize + offsetX;
-                const y = (row - startRow) * this.map.tileSize + offsetY;
+                const x = (col - startCol) * this.map.displayTileSize + offsetX;
+                const y = (row - startRow) * this.map.displayTileSize + offsetY;
                 ctx.drawImage(
                     this.map.image,
                     (tile - 1) * this.map.image_tile % this.map.image.width,
@@ -73,8 +73,8 @@ class Game {
                     this.map.image_tile,
                     Math.round(x),
                     Math.round(y),
-                    this.map.tileSize,
-                    this.map.tileSize
+                    this.map.displayTileSize,
+                    this.map.displayTileSize
                 );
 
                 /*
